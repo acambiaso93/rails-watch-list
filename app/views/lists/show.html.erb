@@ -1,0 +1,57 @@
+<div class="banner-list">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+
+
+<div class="my-lists col-10">
+
+  <div class="d-flex justify-content-between mb-4">
+    <h1>My movies</h1>
+    <button class="button-c"> <%= link_to "Add Movie", new_list_bookmark_path(@list) %></button>
+  </div>
+
+  <div class="movie-cards">
+    <% @list.movies.each do |movie| %>
+      <div class="movie-card">
+      <%= bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+      <div class="col-12 col-sm-6 mb-4" data-aos="zoom-in">
+        <div class="bg-white rounded shadow h-100">
+          <%= image_tag movie.poster_url, alt: movie.title, class: "movie-img rounded-top" %>
+          <div class="p-3 rounded-bottom d-flex flex-column">
+            <strong><%= movie.title %> <span class="text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star star-yellow"></i></span></strong>
+            <small class="text-muted"><%= movie.overview %></small>
+            <div class="d-flex align-items-end justify-content-between pt-4">
+              <div>
+                <i class="fas fa-quote-left me-2"></i><small class="flex-grow-1"><%= bookmark.comment %></small>
+              </div>
+              <small class="text-right flex-shrink-0"><%= link_to "delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove #{movie.title} from your #{@list.name} list"}, class: 'text-danger' %></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+<ul class="list-group">
+  <% @list.bookmarks.each do |bookmark| %>
+    <li class="list-group-item"><%= bookmark.comment %>
+      <%= link_to "Delete",
+      bookmark_path(bookmark),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+      %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Add a new bookmark", new_list_bookmark_path(@list) %>
+
+<%= link_to "Go Back", lists_path %>

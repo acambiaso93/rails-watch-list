@@ -1,0 +1,25 @@
+// Specific CSS for your home-page
+.banner {
+  // background-image: url("https://dg3fwljcbubde.cloudfront.net/Landing/landing-bg-ww.jpg");
+  background-repeat: no-repeat;
+  padding: 200px 0px;
+  background-position: center;
+  --opacidad-negro: 0.5;
+    background-image: linear-gradient(rgba(0, 0, 0, var(--opacidad-negro)), rgba(0, 0, 0, var(--opacidad-negro))), url("https://dg3fwljcbubde.cloudfront.net/Landing/landing-bg-ww.jpg");
+    h1 {
+      font-size: 72px;
+    }
+}
+
+.container {
+  color: white;
+}
+
+.my-lists {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+  h1 {
+    color: $light-gray;
+  }
+}

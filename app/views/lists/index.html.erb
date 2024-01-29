@@ -1,0 +1,32 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand">Navbar</a>
+    <form class="d-flex">
+      <button class="btn btn-outline-light" type="submit">My list</button>
+    </form>
+  </div>
+</nav>
+
+<div class="banner">
+  <div class="container">
+    <h1>WatchList</h1>
+    <p>Save all your movies</p>
+  </div>
+</div>
+
+
+<div class="my-lists col-10">
+
+  <div class="d-flex justify-content-between mb-4">
+    <h1>My lists</h1>
+    <button class="button-c"> <%= link_to "Create a movie list", new_list_path %></button>
+  </div>
+
+  <div class="cards d-flex">
+    <% @lists.each do |list| %>
+      <div class="card">
+          <h6><%= link_to list.name, list_path(list) %></h6>
+      </div>
+    <% end %>
+  </div>
+</div>
