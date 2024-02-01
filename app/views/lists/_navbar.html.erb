@@ -1,9 +1,9 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
-    <form class="d-flex">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success" type="submit">Search</button>
+    <a class="navbar-brand">WatchList</a>
+    <form class="d-flex ">
+      <%= link_to "My Lists", lists_path, class: "btn btn-outline-light" %>
+      <%= link_to "New List", new_list_path, class: "btn btn-outline-light ms-3" %>
     </form>
   </div>
 </nav>

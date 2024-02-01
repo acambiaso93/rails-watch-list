@@ -4,12 +4,17 @@
   <%= form_with model: @list do |f| %>
     <div class="mb-3">
       <%= f.label :name, style: "color:white" %>
-    <%= f.text_field :name, class: "form-control" %>
+      <%= f.text_field :name, class: "form-control" %>
     </div>
+
+    <div class="mb-3 btn-outline-light">
+      <%= f.file_field :photo, style: "color:white", name: " " %>
+    </div>
+
     <div class="mb-3">
       <%= f.submit "Create List", class: "button-c p-2" %>
     </div>
   <% end %>
 
- <%= link_to "Back to the lists", lists_path %>
+ <small><%= link_to "Back to the lists", lists_path %></small>
 </div>

@@ -15,4 +15,3 @@ movie_data['results'].each do |movie|
 end
 
 puts "Finished!"
-
